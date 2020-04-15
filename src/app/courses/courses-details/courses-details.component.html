@@ -1,0 +1,19 @@
+<h1>Courses Details</h1>
+<div *ngIf="course else noCourse">
+  <hr>
+  <p>
+    id:{{ course.id }}
+  </p>
+  <p>
+    title: {{ course.title }}
+  </p>
+  <p>
+    instructor: {{ course.instructor }}
+  </p>
+  <p>
+    isAvaiable: {{ course.isAvaiable }}
+  </p>
+</div>
+<ng-template #noCourse>
+  <p>no course selected</p>
+</ng-template>
