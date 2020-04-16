@@ -7,12 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./courses.component.css'],
 })
 export class CoursesComponent implements OnInit {
-  constructor(private router:Router) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
   onLimitChange(ev) {
-    const  value = ev.target.value;
-    this.router.navigate(['/courses' ],{queryParams:{limit:value}})
-
+    const value = ev.target.value;
+    this.router.navigate(['/courses'], {
+      queryParams: { limit: value },
+      queryParamsHandling: 'merge',
+    });
   }
 }

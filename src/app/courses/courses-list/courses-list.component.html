@@ -1,11 +1,28 @@
-<p *ngIf="clickedCourseTilte">
-    Course {{clickedCourseTilte}} is clicked
-</p>
-<ul class="list-group" >
-    <app-courses-item  *ngFor="let course of courses" 
-    (CourseClick)="onCourseClick($event)" [courseData]="course"
-    (click)="onCourseItemClick(course)" >
-
-    </app-courses-item>
+<p *ngIf="clickedCourseTilte">Course {{ clickedCourseTilte }} is clicked</p>
+<ul class="list-group">
+  <app-courses-item
+    *ngFor="let course of courses"
+    (CourseClick)="onCourseClick($event)"
+    [courseData]="course"
+    (click)="onCourseItemClick(course)"
+  >
+  </app-courses-item>
 </ul>
- 
+<nav aria-label="..." class="mt-4">
+  <ul class="pagination">
+    <li
+      class="page-item"
+      [ngClass]="{ active: currentPage == i + 1 }"
+      *ngFor="let page of pages; index as i"
+      [routerLink]="['/courses']"
+      [queryParams]="{ page: i + 1 }"
+      queryParamsHandling="merge"
+    >
+      <a class="page-link">{{ i + 1 }}</a>
+    </li>
+    <!-- <li class="page-item active" aria-current="page">
+        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+  </ul>
+</nav>

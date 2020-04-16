@@ -30,15 +30,25 @@ export class CoursesListComponent implements OnInit {
   // ];
   courses;
   clickedCourseTilte;
+  pages: any[];
+  currentPage: number = 1;
+
   constructor(private courseService: CoursesService , private activateRoute :ActivatedRoute) {}
 
   ngOnInit(): void {
    
     this.activateRoute.queryParamMap.subscribe(queryParamMap => {
-      const limit = queryParamMap.get('limit') || 10;
-       this.courseService.getCourses({limit}).subscribe((res:any) => {
+      // const limit = queryParamMap.get('limit') || 10;
+      const params = {};
+      queryParamMap.keys.forEach(key => {
+        params[key] = queryParamMap.get(key);
+      })
+       this.courseService.getCourses(params).subscribe((res:any) => {
       if (res.status) {
         this.courses = res.data;
+        this.currentPage = res.page;
+        this.pages = new Array(res.total_pages || 0);
+        console.log(this.pages , this.currentPage);
       }
     });
 
