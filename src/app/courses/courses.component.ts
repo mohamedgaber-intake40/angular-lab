@@ -17,4 +17,12 @@ export class CoursesComponent implements OnInit {
       queryParamsHandling: 'merge',
     });
   }
+
+  search(ev) {
+    const value = ev.target.value;
+    this.router.navigate(['/courses'], {
+      queryParams: { q: value },
+      queryParamsHandling: 'merge',
+    });
+  }
 }

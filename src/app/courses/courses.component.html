@@ -9,7 +9,9 @@
       </select>
     </div>
     <div class="col-6 text-right">
-      <!-- <input type="text" class="form-control"> -->
+      <form action="">
+        <input type="text" (input)="search($event)" class="form-control" placeholder="course name ">
+      </form>
       <!-- <button class="btn btn-danger mt-2">Delete</button> -->
       <a class="btn createBtn " [routerLink]="['/courses','new']"  queryParamsHandling="preserve"> New course</a>
       <!-- <button class="btn btn-secondary float-right mb-2" [routerLink]="['/courses', 'new']">New course</button> -->
