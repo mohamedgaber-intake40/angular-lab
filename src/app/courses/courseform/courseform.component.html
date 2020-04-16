@@ -13,7 +13,7 @@
 			<div *ngIf="insRef.touched && insRef.invalid" class="alert alert-danger" role="alert">Instructor required</div>
 		</div>
 		<div class="form-group custom-control custom-checkbox">
-			<input type="checkbox" class="custom-control-input" id="isAvailabel" name="isAvailabel" [(ngModel)]="course.isAvailable" >
+			<input type="checkbox" class="custom-control-input" id="isAvailabel" name="isAvailabel" >
 			<label class="custom-control-label" for="isAvailabel">Avaliable</label>
 		</div>
 		<button type="submit"class="btn btn-danger" [disabled]="newCourseForm.invalid">Add</button>

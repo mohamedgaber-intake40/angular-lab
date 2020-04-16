@@ -1,6 +1,14 @@
 <div class="container mt-5 p-5 bg-info">
   <div class="row">
-    <div class="col   text-right  ">
+    <div class="col-6 text-right">
+      <select name="limit" id="" (change)="onLimitChange($event)">
+        <option value="10">Default</option>
+        <option value="1">1</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+      </select>
+    </div>
+    <div class="col-6 text-right">
       <!-- <input type="text" class="form-control"> -->
       <!-- <button class="btn btn-danger mt-2">Delete</button> -->
       <a class="btn createBtn " [routerLink]="['/courses','new']"> New course</a>

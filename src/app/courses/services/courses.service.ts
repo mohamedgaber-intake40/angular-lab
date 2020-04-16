@@ -15,8 +15,8 @@ export class CoursesService {
     this.courseSubject.next(data);
   }
 
-  getCourses() {
-    return this.http.get(this.apiURI);
+  getCourses(params ={}) {
+    return this.http.get(this.apiURI,{params});
   }
 
   get courseSubjectObservable() {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./courses.component.css'],
 })
 export class CoursesComponent implements OnInit {
-  constructor() {}
-  
-  ngOnInit(): void { }
-  
+  constructor(private router:Router) {}
+
+  ngOnInit(): void {}
+  onLimitChange(ev) {
+    const  value = ev.target.value;
+    this.router.navigate(['/courses' ],{queryParams:{limit:value}})
+
+  }
 }

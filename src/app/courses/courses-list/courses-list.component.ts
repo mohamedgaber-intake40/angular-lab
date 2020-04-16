@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CoursesService } from '../services/courses.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-courses-list',
@@ -29,14 +30,19 @@ export class CoursesListComponent implements OnInit {
   // ];
   courses;
   clickedCourseTilte;
-  constructor(private courseService: CoursesService) {}
+  constructor(private courseService: CoursesService , private activateRoute :ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.courseService.getCourses().subscribe((res:any) => {
+   
+    this.activateRoute.queryParamMap.subscribe(queryParamMap => {
+      const limit = queryParamMap.get('limit') || 10;
+       this.courseService.getCourses({limit}).subscribe((res:any) => {
       if (res.status) {
         this.courses = res.data;
       }
     });
+
+    })
   }
   onCourseClick(data) {
     this.clickedCourseTilte = data;
