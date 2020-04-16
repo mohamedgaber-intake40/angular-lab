@@ -6,16 +6,19 @@ import { CoursesComponent } from './courses.component';
 import { CoursesListComponent } from './courses-list/courses-list.component';
 import { CoursesDetailsComponent } from './courses-details/courses-details.component';
 import { CoursesItemComponent } from './courses-item/courses-item.component';
-
+import { FormsModule } from '@angular/forms';
+import { CourseformComponent } from './courseform/courseform.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [CoursesComponent, CoursesListComponent, CoursesDetailsComponent, CoursesItemComponent],
-  imports: [
-    CommonModule,
-    CoursesRoutingModule
+  declarations: [
+    CoursesComponent,
+    CoursesListComponent,
+    CoursesDetailsComponent,
+    CoursesItemComponent,
+    CourseformComponent,
   ],
-  exports: [
-    CoursesComponent
-  ]
+  imports: [CommonModule, CoursesRoutingModule, FormsModule, HttpClientModule],
+  exports: [CoursesComponent],
 })
-export class CoursesModule { }
+export class CoursesModule {}

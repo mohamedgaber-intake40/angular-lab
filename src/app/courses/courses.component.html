@@ -1,8 +1,11 @@
 <div class="container mt-5 p-5 bg-info">
   <div class="row">
-    <div class="col text-center">
+    <div class="col   text-right  ">
       <!-- <input type="text" class="form-control"> -->
       <!-- <button class="btn btn-danger mt-2">Delete</button> -->
+      <a class="btn createBtn " [routerLink]="['/courses','new']"> New course</a>
+      <!-- <button class="btn btn-secondary float-right mb-2" [routerLink]="['/courses', 'new']">New course</button> -->
+
     </div>
   </div>
   <div class="container">
@@ -13,7 +16,8 @@
         <app-courses-list></app-courses-list>
       </div>
       <div class="col-6">
-        <app-courses-details></app-courses-details>
+        <!-- <app-courses-details></app-courses-details> -->
+        <router-outlet></router-outlet>
       </div>
     </div>
   </div>

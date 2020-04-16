@@ -1,19 +1,33 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CoursesService {
+  private apiURI = 'https://afternoon-falls-30227.herokuapp.com/api/v1/courses';
   private courseSubject = new BehaviorSubject(null);
-  constructor() { }
-  changeCourseData(data)
-  {
+
+  constructor(private http: HttpClient) {}
+
+  changeCourseData(data) {
     this.courseSubject.next(data);
   }
 
-  get courseSubjectObservable()
-  {
+  getCourses() {
+    return this.http.get(this.apiURI);
+  }
+
+  get courseSubjectObservable() {
     return this.courseSubject.asObservable();
+  }
+  getCourseById(id) {
+    return this.http.get(`${this.apiURI}/${id}`);
+  }
+  addCourse(course) {
+    // console.log(course);
+
+    return this.http.post(this.apiURI, course);
   }
 }

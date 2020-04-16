@@ -1,6 +1,6 @@
 <li class="list-group-item" 
-[ngClass]="{'list-group-item-success' :course.isAvaiable ,'list-group-item-danger' :!course.isAvaiable   }"
-(click)="onClick()">
+[ngClass]="{'list-group-item-success' :course.isAvailabel ,'list-group-item-danger' :!course.isAvailabel   }"
+(click)="onClick()" [routerLink]="['/courses', course.id]">
 {{course.title}}
 </li>
 
